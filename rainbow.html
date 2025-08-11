@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rainbow</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    .rainbow-band {
+      width: 100%;
+      height: 40px;
+    }
+
+    .red { background-color: #FF0000; }
+    .orange { background-color: #FF7F00; }
+    .yellow { background-color: #FFFF00; }
+    .green { background-color: #00FF00; }
+    .blue { background-color: #0000FF; }
+    .indigo { background-color: #4B0082; }
+    .violet { background-color: #8B00FF; }
+  </style>
+</head>
+<body>
+
+  <div class="red rainbow-band"></div>
+  <div class="orange rainbow-band"></div>
+  <div class="yellow rainbow-band"></div>
+  <div class="green rainbow-band"></div>
+  <div class="blue rainbow-band"></div>
+  <div class="indigo rainbow-band"></div>
+  <div class="violet rainbow-band"></div>
+
+  <h1>Beautiful Sky</h1>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+
+  <script src="jquery.js"></script>
+  <script>
+    // Hide each band in sequence
+    $('.red').hide(5000);
+    $('.orange').hide(6000);
+    $('.yellow').hide(7000);
+    $('.green').hide(8000);
+    $('.blue').hide(9000);
+    $('.indigo').hide(10000);
+    $('.violet').hide(11000);
+
+    // Then show again in reverse
+    $('.violet').show(5000);
+    $('.indigo').show(6000);
+    $('.blue').show(7000);
+    $('.green').show(8000);
+    $('.yellow').show(9000);
+    $('.orange').show(10000);
+    $('.red').show(11000);
+  </script>
+</body>
+</html>
