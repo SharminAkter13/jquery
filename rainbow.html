@@ -4,58 +4,103 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rainbow</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <style>
     body {
       margin: 0;
       font-family: sans-serif;
     }
 
-    .rainbow-band {
-      width: 100%;
-      height: 40px;
-    }
+    
 
-    .red { background-color: #FF0000; }
-    .orange { background-color: #FF7F00; }
-    .yellow { background-color: #FFFF00; }
-    .green { background-color: #00FF00; }
-    .blue { background-color: #0000FF; }
-    .indigo { background-color: #4B0082; }
-    .violet { background-color: #8B00FF; }
+
   </style>
 </head>
 <body>
+    <h1>Name of Color</h1>
+    <div class="red ">It's a Red Color</div><br>
+    <div class="orange ">It's a Orange Color</div><br>
+    <div class="yellow ">It's a Yellow Color</div><br>
+    <p class="green ">It's a Green Color</p>
+    <p class="blue ">It's a Blue Color</p>
+    <p class="indigo ">It's a Indigo Color</p>
+    <p class="violet ">It's a Violet Color</p>
 
-  <div class="red rainbow-band"></div>
-  <div class="orange rainbow-band"></div>
-  <div class="yellow rainbow-band"></div>
-  <div class="green rainbow-band"></div>
-  <div class="blue rainbow-band"></div>
-  <div class="indigo rainbow-band"></div>
-  <div class="violet rainbow-band"></div>
+    <table class="table table-dark">
+    <thead>
+        <th>#</th>
+        <th>name</th>
+    </thead>
+    <tbody>
+        <tr class="table-active">
+            <td>1</td>
+            <td>A</td>
+        </tr>
+        <tr>
+             <td>2</td>
+            <td>B</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>C</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>D</td>
+        </tr>
+    </tbody>
+    </table>
 
-  <h1>Beautiful Sky</h1>
-  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
+    <h1>unorder list-1</h1>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+    </ul>
+    <h1>unorder list-2</h1>
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+    </ul>
+    
+
+    <button class="hide">HIDE</button>
+    <button class="show">SHOW</button>
+    <button class="toggle">TOGGLE</button>
+    <h1>Beautiful Sky</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit...</p>
 
   <script src="jquery.js"></script>
   <script>
-    // Hide each band in sequence
-    $('.red').hide(5000);
-    $('.orange').hide(6000);
-    $('.yellow').hide(7000);
-    $('.green').hide(8000);
-    $('.blue').hide(9000);
-    $('.indigo').hide(10000);
-    $('.violet').hide(11000);
 
-    // Then show again in reverse
-    $('.violet').show(5000);
-    $('.indigo').show(6000);
-    $('.blue').show(7000);
-    $('.green').show(8000);
-    $('.yellow').show(9000);
-    $('.orange').show(10000);
-    $('.red').show(11000);
+     $(document).ready(function(){
+         $(".hide").click(function(){
+        $("ul li:first-child").hide(5000); 
+         })
+    })
+    $(document).ready(function(){
+         $(".hide").click(function(){ 
+        $("p:first").hide(5000);
+         });
+         $(".hide").click(function(){ 
+        $("tr:even").hide(5000);
+         });
+        $(".show").click(function(){ 
+        $("h1").show(5000);
+         });
+          $(".toggle").click(function(){ 
+        $("div").toggle(5000);
+         });
+         
+    })
+
+     
+
   </script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
 </body>
 </html>
