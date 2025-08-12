@@ -21,6 +21,13 @@
         <li>D</li>
     </ol>
     <a href="">jquery</a>
+    <p>Hello</p>
+    <p>Hello</p>
+    <p>Hello</p>
+    <h5>Hello</h5>
+    <h5>Hello</h5>
+    <h5>Hello</h5>
+    <button>Click It</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -31,12 +38,25 @@
         $("a").attr("href","https://developers.google.com/speed/libraries#jquery");
     </script> -->
 
-    <script>
+    <!-- <script>
         $("h1").css("color","yellow");
         $("h1").css("background-color","blue");
 
         $("li").css({"background-color": "yellow",
             "color":"blue","font-weight":"bold"
+        })
+    </script> -->
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+            $("p").text("Hello World!!!!");
+            });
+        })
+
+         $(document).ready(function(){
+            $("button").click(function(){
+            $("h5").html("Hello World!!!!");
+            });
         })
     </script>
 </body>
