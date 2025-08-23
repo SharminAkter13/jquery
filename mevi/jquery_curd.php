@@ -80,7 +80,7 @@ include("connect.php");
                 var add = $("#m_address").val();
                 var con = $("#m_contact").val();
                 $.ajax({
-                    url: "ajaxdata/jquery_crud.php",
+                    url: "crud.php",
                     type: "post",
                     data: ({
                         "action": "save",
@@ -100,7 +100,7 @@ include("connect.php");
                 var add = $("#m_address").val();
                 var con = $("#m_contact").val();
                 $.ajax({
-                    url: "ajaxdata/jquery_crud.php",
+                    url: "crud.php",
                     type: "post",
                     data: ({
                         "action": "update",
@@ -119,7 +119,7 @@ include("connect.php");
             $("#delete").click(function() {
                 var id = $("#m_id").val();
                 $.ajax({
-                    url: "ajaxdata/jquery_crud.php",
+                    url: "crud.php",
                     type: "post",
                     data: ({
                         "action": "delete",
