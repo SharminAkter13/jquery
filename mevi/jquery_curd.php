@@ -1,4 +1,5 @@
 <?php
+// This file assumes 'connect.php' exists and establishes a database connection
 include("connect.php");
 ?>
 <!doctype html>
@@ -7,6 +8,7 @@ include("connect.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CRUD with jQuery</title>
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -17,7 +19,7 @@ include("connect.php");
         </div>
         <div class="card-body">
             <span class="result mb-3 d-block"></span>
-            <form method="POST">
+            <form method="POST" id="crudForm">
                 <input type="hidden" id="id" name="id">
 
                 <div class="mb-3">
@@ -56,6 +58,7 @@ include("connect.php");
             </thead>
             <tbody id="data">
                 <?php
+                // Use the correct column names from the database: 'id', 'name', 'address', 'contact_no'
                 $data = $connection->query("SELECT * FROM manufacturer");
                 while ($row = $data->fetch_assoc()) {
                     echo "<tr>
@@ -71,12 +74,14 @@ include("connect.php");
     </div>
 </div>
 
-<script src="js/jquery-3.3.1.min.js"></script>
+<!-- jQuery library -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<script type="text/javascript">
+<script >
 $(function () {
-    // Save
+    // Save data via AJAX
     $("#save").click(function () {
         $.post("ajax/curd.php", {
             "savem_name": $("#m_name").val(),
@@ -84,11 +89,11 @@ $(function () {
             "m_contact": $("#m_contact").val()
         }, function (data) {
             $(".result").html(data);
-            location.reload(); // refresh to see changes
+            location.reload();
         });
     });
 
-    // Update
+    // Update data via AJAX
     $("#update").click(function () {
         $.post("ajax/curd.php", {
             "upid": $("#id").val(),
@@ -101,7 +106,7 @@ $(function () {
         });
     });
 
-    // Delete
+    // Delete data via AJAX
     $("#delete").click(function () {
         $.post("ajax/curd.php", { "id": $("#id").val() }, function (data) {
             $(".result").html(data);
@@ -109,15 +114,24 @@ $(function () {
         });
     });
 
-    // Fill form from row
-    $("#data tr").on("click", function () {
+    // Fill form when clicking a table row
+    // The jQuery code correctly maps table cell position to form field ID
+    $(document).on("click", "#data tr", function () {
+        // Simple debugging to see the values being captured
+        console.log("Clicked row data:");
+        console.log("ID:", $(this).find("td:eq(0)").text());
+        console.log("Name:", $(this).find("td:eq(1)").text());
+        console.log("Address:", $(this).find("td:eq(2)").text());
+        console.log("Contact:", $(this).find("td:eq(3)").text());
+
+        // Populate the form fields based on the cell position
         $("#id").val($(this).find("td:eq(0)").text());
         $("#m_name").val($(this).find("td:eq(1)").text());
         $("#m_address").val($(this).find("td:eq(2)").text());
         $("#m_contact").val($(this).find("td:eq(3)").text());
     });
 
-    // Reset
+    // Reset the form
     $("#reset").click(function () {
         $("form")[0].reset();
         $("#id").val("");
