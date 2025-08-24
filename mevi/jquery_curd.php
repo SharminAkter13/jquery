@@ -98,7 +98,6 @@ include("connect.php");
                     url: "ajax/curd.php",
                     type: "post",
                     data: {
-                        "savem_name": name,
                         "m_address": add,
                         "m_contact": con
                     },
